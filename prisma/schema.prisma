@@ -13,3 +13,27 @@ datasource db {
   provider = "postgresql"
 }
 
+model Product {
+  id String @id @default(uuid())
+
+  name String 
+  tags ProductTags[]
+  price Int
+  img String 
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedat DateTime @updatedAt @map("updated_at")
+
+  @@map("product")
+}
+
+model Comment {
+  id String @id @default(uuid())
+}
+
+enum ProductTags {
+  Футболки 
+  Худи
+  Значки
+  Наклейки
+}
