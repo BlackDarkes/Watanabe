@@ -22,13 +22,27 @@ model Product {
   img String 
 
   createdAt DateTime @default(now()) @map("created_at")
-  updatedat DateTime @updatedAt @map("updated_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  comments Comment[]
 
   @@map("product")
 }
 
 model Comment {
   id String @id @default(uuid())
+
+  productId String @map("product_id")
+  name String
+  message String
+  stars Int
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@map("comment")
 }
 
 enum ProductTags {
