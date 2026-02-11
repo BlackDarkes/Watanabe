@@ -24,6 +24,7 @@
       "@/components/*": ["./src/components/*"],
       "@/config/*": ["./src/config/*"],
       "@/constants/*": ["./src/constants/*"],
+      "@/generated/*": ["./src/generated/*"],
       "@/hooks/*": ["./src/hooks/*"],
       "@/server-actions/*": ["./src/server-actions/*"],
       "@/shared/*": ["./src/shared/*"],

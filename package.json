@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "bg:client": "pnpm prisma generate",
+    "db:client": "pnpm prisma generate",
     "db:generate": "pnpm prisma migrate dev --name",
     "db:migrate": "pnpm prisma migrate deploy"
   },
