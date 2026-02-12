@@ -1,22 +1,33 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 export const useWindowSize = () => {
-  const [width, setWidth] = useState(() => window.innerWidth);
-  const [height, setHeight] = useState(() => window.innerWidth);
-
-  const handleResize = () => {
-    setHeight(window.innerHeight);
-    setWidth(window.innerWidth);
-  }
+  const [size, setSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
-    document.addEventListener("resize", handleResize);
-    return () => {
-      document.removeEventListener("resize", handleResize);
-    }
-  }, [width, height]);
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
-  return { width, height };
-}
+    const handleResize = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      
+      timeoutId = setTimeout(() => {
+        setSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }, 150);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, []);
+
+  return size;
+};
