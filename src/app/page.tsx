@@ -1,3 +1,4 @@
+import { Comments } from "@/components/comments";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { WhyUs } from "@/components/why-us";
@@ -9,6 +10,7 @@ export default function Home() {
       <main>
         <Hero />
         <WhyUs />
+        <Comments />
       </main>
     </>
   );

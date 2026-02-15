@@ -14,7 +14,7 @@ const NAV_ITEMS: INavItem[] = [
   {
     id: 2,
     name: "Отзывы",
-    href: "#feedback",
+    href: "#comments",
   },
   {
     id: 3,
