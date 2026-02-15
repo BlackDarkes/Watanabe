@@ -15,6 +15,9 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Ватанабе",
   description: "Сайт аниме мерча",
+  icons: {
+    icon: "/favicon.png",
+  }
 };
 
 export default function RootLayout({
