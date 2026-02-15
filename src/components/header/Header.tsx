@@ -14,7 +14,7 @@ export const Header = () => {
       <Container className="flex justify-between items-center">
         <Logo />
 
-        <NavBar elements={NAV_ITEMS} />
+        <NavBar elements={NAV_ITEMS} handleClose={handleOpen} />
 
         <Burger handleOpen={handleOpen} isOpen={isOpenBurger} />
       </Container>

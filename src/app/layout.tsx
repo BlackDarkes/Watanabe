@@ -15,6 +15,9 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Ватанабе",
   description: "Сайт аниме мерча",
+  authors: [
+    { name: "Daniil Gordeev(BlackDarkes)", url: "https://github.com/BlackDarkes" }
+  ],
   icons: {
     icon: "/favicon.png",
   }

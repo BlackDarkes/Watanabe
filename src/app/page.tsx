@@ -1,5 +1,6 @@
 import { Header } from "@/components/header";
-import { Hero } from "@/components/hero/Hero";
+import { Hero } from "@/components/hero";
+import { WhyUs } from "@/components/why-us";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <WhyUs />
       </main>
     </>
   );

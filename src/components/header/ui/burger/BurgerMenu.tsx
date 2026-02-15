@@ -29,7 +29,7 @@ export const BurgerMenu = ({
         onClick={(event) => event.stopPropagation()}
       >
         {elements.map((elem) => (
-          <NavBarElement key={elem.id} element={elem} />
+          <NavBarElement key={elem.id} element={elem} handleClose={handleOpen} />
         ))}
       </ul>
     </div>
