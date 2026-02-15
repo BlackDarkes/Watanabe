@@ -10,7 +10,7 @@ export const Header = () => {
   const { handleOpen, isOpenBurger } = useBurgerStore();
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-(--secondary-bg) py-7.5">
+    <header className="fixed top-0 left-0 w-full bg-(--secondary-bg) py-[clamp(16px,4vw,30px)]">
       <Container className="flex justify-between items-center">
         <Logo />
 
