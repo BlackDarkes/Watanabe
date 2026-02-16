@@ -1,6 +1,7 @@
 import { Comments } from "@/components/comments";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
+import { OrderHelper } from "@/components/order-helper/OrderHelper";
 import { WhyUs } from "@/components/why-us";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
         <Hero />
         <WhyUs />
         <Comments />
+        <OrderHelper />
       </main>
     </>
   );

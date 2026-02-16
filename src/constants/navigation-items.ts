@@ -19,7 +19,7 @@ const NAV_ITEMS: INavItem[] = [
   {
     id: 3,
     name: "Как заказать",
-    href: "#how-to-order",
+    href: "#order-helper",
   },
   {
     id: 4,
