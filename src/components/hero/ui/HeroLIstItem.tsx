@@ -8,12 +8,12 @@ interface IHeroListItemProps {
   
 export const HeroListItem = ({ product }: IHeroListItemProps) => {
   return (
-    <li className="flex flex-col shrink-0 gap-y-3.75 p-2.5 bg-(--card-bg) rounded-xl shadow-(--block-shadow) snap-center">
+    <li className="flex flex-col shrink-0 gap-y-3.75 p-2.5 bg-(--card-bg) w-[clamp(220px,40vw,260px)] rounded-xl shadow-(--block-shadow) snap-center">
       <Image src={product.img} alt={product.name} width={260} height={260} className="ratio w-[clamp(220px,40vw,260px)]" />
 
       <div>
         <h3 className="mb-1.25 text-[clamp(14px,4vw,24px)] font-semibold w-[clamp(220px,40vw,260px)] truncate" title={product.name}>{product.name}</h3>
-        <div className="flex gap-x-2.5 mb-5 overflow-auto scrollbar-hide">
+        <div className="flex gap-x-2.5 mb-5 overflow-auto text-nowrap overscroll-x-contain scrollbar-hide">
           {product.tags.map((tag) => (
             <HeroListTag key={product.id} tag={tag} />
           ))}

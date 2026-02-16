@@ -1,3 +1,4 @@
+import { Catalog } from "@/components/catalog/Catalog";
 import { Comments } from "@/components/comments";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
@@ -13,6 +14,7 @@ export default function Home() {
         <WhyUs />
         <Comments />
         <OrderHelper />
+        <Catalog />
       </main>
     </>
   );
