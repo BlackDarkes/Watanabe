@@ -29,7 +29,7 @@ const NAV_ITEMS: INavItem[] = [
   {
     id: 5,
     name: "Конструктор",
-    link: "/constructor",
+    link: "/designer",
   },
   {
     id: 6,
