@@ -5,7 +5,7 @@ import Link from "next/link";
 
 interface INavBarElementProps {
   element: INavItem;
-  handleClose: () => void;
+  handleClose?: () => void;
 }
 
 export const NavBarElement = ({
