@@ -25,8 +25,8 @@ export const CatalogListItem = ({ product }: ICatalogListItemProps) => {
           {product.name}
         </h3>
         <div className="flex gap-x-2.5 mb-5 overflow-auto scrollbar-hide">
-          {product.tags.map((tag) => (
-            <CatalogListTag key={product.id} tag={tag} />
+          {product.tags.map((tag, index) => (
+            <CatalogListTag key={index} tag={tag} />
           ))}
         </div>
         <p className="mb-6.25 text-(--third-color) font-bold text-[clamp(20px,4vw,26px)]">

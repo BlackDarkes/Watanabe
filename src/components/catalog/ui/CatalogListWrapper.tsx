@@ -13,7 +13,6 @@ interface ICatalogListWrapperProps {
 export const CatalogListWrapper = ({ products }: ICatalogListWrapperProps) => {
   const [updateProducts, setUpdateProducts] = useState(products);
   const [limit, setLimit] = useState(8);
-  const [isMaxLimit, setIsMaxLimit] = useState(false);
 
   const handleShowMore = async () => {
     const newLimit = limit + 4;

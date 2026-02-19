@@ -14,8 +14,8 @@ export const HeroListItem = ({ product }: IHeroListItemProps) => {
       <div>
         <h3 className="mb-1.25 text-[clamp(14px,4vw,24px)] font-semibold w-[clamp(220px,40vw,260px)] truncate" title={product.name}>{product.name}</h3>
         <div className="flex gap-x-2.5 mb-5 overflow-auto text-nowrap overscroll-x-contain scrollbar-hide">
-          {product.tags.map((tag) => (
-            <HeroListTag key={product.id} tag={tag} />
+          {product.tags.map((tag, index) => (
+            <HeroListTag key={index} tag={tag} />
           ))}
         </div>
         <p className="mb-6.25 text-(--third-color) font-bold text-[clamp(20px,4vw,26px)]">{product.price} ₽</p>
