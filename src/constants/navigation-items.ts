@@ -28,8 +28,8 @@ const NAV_ITEMS: INavItem[] = [
   },
   {
     id: 5,
-    name: "Конструкто",
-    link: "/constructo",
+    name: "Конструктор",
+    link: "/constructor",
   },
   {
     id: 6,

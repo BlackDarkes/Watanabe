@@ -17,6 +17,8 @@
   --star-color: #FFFF00;
 
   --block-shadow: 4px 4px 12px 0px rgba(255, 255, 255, 0.3);
+
+  --block-padding: clamp(90px,10vw,150px);
 }
 
 @theme inline {

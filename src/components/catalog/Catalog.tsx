@@ -6,7 +6,7 @@ export const Catalog = async () => {
   const { products } = await getProducts(8);
 
   return (
-    <section id="catalog" className="mb-[clamp(70px,10vw,120px)]">
+    <section id="catalog" className="pb-(--block-padding) max-xl:scroll-mt-[20vh]">
       <Container className="flex flex-col items-center gap-y-6.25">
         <h2 className="text-center text-[clamp(24px,4vw,36px)] font-bold">Каталог товаров</h2>
 
