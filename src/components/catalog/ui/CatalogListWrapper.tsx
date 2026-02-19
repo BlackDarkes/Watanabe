@@ -13,18 +13,23 @@ interface ICatalogListWrapperProps {
 export const CatalogListWrapper = ({ products }: ICatalogListWrapperProps) => {
   const [updateProducts, setUpdateProducts] = useState(products);
   const [limit, setLimit] = useState(8);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const handleShowMore = async () => {
     const newLimit = limit + 4;
-    const newProducts = await getProducts(newLimit);
+    const { products: newProducts, totalCount } = await getProducts(newLimit);
     setUpdateProducts(newProducts);
     setLimit(newLimit);
+
+    if (newLimit >= totalCount) {
+      setIsDisabled(true);
+    }
   };
 
   return (
     <>
       <CatalogList products={updateProducts} />
-      <CatalogButtonShow addLimit={handleShowMore} />
+      <CatalogButtonShow addLimit={handleShowMore} isDisable={isDisabled} />
     </>
   );
 };

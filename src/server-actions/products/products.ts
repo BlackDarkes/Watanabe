@@ -5,16 +5,26 @@ import { logger } from "@/utils/logger";
 
 export const getProducts = async (limit?: number) => {
   try {
-    const products = await prisma.product.findMany({
-      include: {
-        comments: true,
-      },
-      take: limit
-    })
+    const [products, totalCount] = await Promise.all([
+      prisma.product.findMany({
+        include: {
+          comments: true,
+        },
+        take: limit,
+      }),
+      prisma.product.count(),
+    ])
 
-    return products;
+
+    return {
+      products,
+      totalCount
+    };
   } catch(error) {
     logger.error("getProducts", error);
-    return [];
+    return {
+      products: [],
+      totalCount: 0,
+    };
   }
 }

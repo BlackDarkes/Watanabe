@@ -8,23 +8,23 @@ interface ICatalogListItemProps {
 
 export const CatalogListItem = ({ product }: ICatalogListItemProps) => {
   return (
-    <li className="flex flex-col shrink-0 gap-y-3.75 p-2.5 bg-(--card-bg) rounded-xl shadow-(--block-shadow) snap-center">
+    <li className="flex flex-col shrink-0 gap-y-3.75 p-2.5 w-[clamp(140px,40vw,280px)] bg-(--card-bg) rounded-xl shadow-(--block-shadow) snap-center">
       <Image
         src={product.img}
         alt={product.name}
         width={260}
         height={260}
-        className="ratio w-[clamp(220px,40vw,260px)]"
+        className="ratio w-[clamp(140px,40vw,260px)]"
       />
 
       <div>
         <h3
-          className="mb-1.25 text-[clamp(14px,4vw,24px)] font-semibold w-[clamp(220px,40vw,260px)] truncate"
+          className="mb-1.25 text-[clamp(14px,4vw,24px)] font-semibold w-[clamp(50px,35vw,260px)] truncate"
           title={product.name}
         >
           {product.name}
         </h3>
-        <div className="flex gap-x-2.5 mb-5 overflow-auto scrollbar-hide">
+        <div className="flex gap-x-2.5 mb-5 overflow-auto text-nowrap overscroll-x-contain scrollbar-hide">
           {product.tags.map((tag, index) => (
             <CatalogListTag key={index} tag={tag} />
           ))}
