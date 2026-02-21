@@ -11,7 +11,10 @@ export const useBurgerStore = create<IBurgerStore>()(
     (set) => ({
       isOpenBurger: false,
 
-      handleOpen: () => set((state) => ({ isOpenBurger: !state.isOpenBurger })),
+      handleOpen: () => {
+        set((state) => ({ isOpenBurger: !state.isOpenBurger }));
+        document.body.classList.toggle("overflow-hidden");
+      },
     }),
     { name: "BurgerStore" },
   ),

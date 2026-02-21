@@ -9,22 +9,22 @@ const NAV_ITEMS: INavItem[] = [
   {
     id: 1,
     name: "Почему мы?",
-    href: "#why-us",
+    href: "/#why-us",
   },
   {
     id: 2,
     name: "Отзывы",
-    href: "#comments",
+    href: "/#comments",
   },
   {
     id: 3,
     name: "Как заказать",
-    href: "#order-helper",
+    href: "/#order-helper",
   },
   {
     id: 4,
     name: "Каталог",
-    href: "#catalog",
+    href: "/#catalog",
   },
   {
     id: 5,
@@ -34,7 +34,7 @@ const NAV_ITEMS: INavItem[] = [
   {
     id: 6,
     name: "FAQ",
-    href: "#faq",
+    href: "/#faq",
   }
 ]
 
