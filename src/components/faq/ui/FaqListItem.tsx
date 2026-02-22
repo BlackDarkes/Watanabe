@@ -6,18 +6,21 @@ interface IFaqListItemProps {
 
 export const FaqListItem = ({ faq }: IFaqListItemProps) => {
   return (
-    <li>
+    <li className="p-px">
       <details>
         <summary
           className={`
-            py-6.25 px-1.25 w-full border text-center font-semibold text-[clamp(16px,4vw,24px)] text-(--navbar-color) cursor-pointer 
+            py-6.25 px-1.25 w-full border text-center font-semibold text-[clamp(16px,4vw,24px)] text-(--navbar-color) cursor-pointer transition duration-400
             ${faq.id === 1 ? "rounded-tl-xl rounded-tr-xl" : ""}
             ${faq.id === 5 ? "rounded-bl-xl rounded-br-xl" : ""}
+            hover:text-(--accent-color) hover:border-(--accent-colo)
           `}
         >
           {faq.title}
         </summary>
-        <p className="my-6.25 text-[clamp(14px,4vw,20px)] font-medium text-(--third-color)">{faq.message}</p>
+        <p className="my-6.25 text-[clamp(14px,4vw,20px)] font-medium text-(--third-color)">
+          {faq.message}
+        </p>
       </details>
     </li>
   );

@@ -46,7 +46,7 @@ export const Settings = ({
   };
 
   return (
-    <div className="flex flex-col gap-y-[clamp(20px,4vw,30px)] p-5 w-[min(100%,480px)] bg-(--card-bg) rounded-xl shadow-(--block-shadow)">
+    <div className="flex flex-col gap-y-[clamp(40px,4vw,50px)] p-5 w-[min(100%,480px)] bg-(--card-bg) rounded-xl shadow-(--block-shadow)">
       <h3 className="font-bold text-[clamp(28px,4vw,32px)]">Настройки</h3>
 
       <div>
@@ -69,7 +69,7 @@ export const Settings = ({
           Цвет
         </h4>
 
-        <div className="flex gap-x-2.5">
+        <div className="flex flex-wrap gap-2.5">
           {settingColors.map((itemColor) => (
             <SettingsColorItem
               key={itemColor.id}

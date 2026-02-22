@@ -5,7 +5,7 @@ interface ISettingFileProps {
 
 export const SettingFile = ({ file, setFile }: ISettingFileProps) => {
   return (
-    <div className="flex items-center gap-x-2.5 flex-wrap">
+    <div className="flex items-center gap-2.5 flex-wrap">
       <label
         className="p-[2px_24px] w-fit border border-[--navbar-color] text-[--navbar-color] text-[16px] rounded-lg font-medium cursor-pointer uppercase transition duration-400 hover:opacity-80"
         style={{ 
