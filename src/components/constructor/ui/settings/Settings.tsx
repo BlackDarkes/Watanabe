@@ -20,6 +20,27 @@ export const Settings = ({
   settingColors,
   settingSizes,
 }: ISettingsProps) => {
+  const [type, setType] = useState<string>("");
+  const [color, setColor] = useState<string>("");
+  const [size, setSize] = useState<string>("");
+  const [file, setFile] = useState<File | null>(null);
+
+  const handleSelect = (type: string) => {
+    setType(type);
+  };
+
+  const handleSelectColor = (color: string) => {
+    setColor(color);
+  };
+
+  const handleSelectSize = (size: string) => {
+    setSize(size);
+  };
+
+  const handleSelectFile = (file: File) => {
+    setFile(file);
+  };
+
   return (
     <div className="flex flex-col gap-y-[clamp(20px,4vw,30px)] p-5 w-[min(100%,480px)] bg-(--card-bg) rounded-xl shadow-(--block-shadow)">
       <h3 className="font-bold text-[clamp(28px,4vw,32px)]">Настройки</h3>
@@ -29,7 +50,12 @@ export const Settings = ({
 
         <div className="flex gap-x-3">
           {settingTypes.map((itemType) => (
-            <SettingsTypeItem key={itemType.id} itemType={itemType} />
+            <SettingsTypeItem
+              key={itemType.id}
+              itemType={itemType}
+              type={type}
+              setType={handleSelect}
+            />
           ))}
         </div>
       </div>
@@ -41,7 +67,12 @@ export const Settings = ({
 
         <div className="flex gap-x-2.5">
           {settingColors.map((itemColor) => (
-            <SettingsColorItem key={itemColor.id} itemColor={itemColor} />
+            <SettingsColorItem
+              key={itemColor.id}
+              itemColor={itemColor}
+              color={color}
+              setColor={handleSelectColor}
+            />
           ))}
         </div>
       </div>
@@ -53,7 +84,7 @@ export const Settings = ({
 
         <div className="flex flex-wrap gap-2.5">
           {settingSizes.map((itemSize) => (
-            <SettingsSizeItem key={itemSize.id} itemSize={itemSize} />
+            <SettingsSizeItem key={itemSize.id} itemSize={itemSize} size={size} setSize={handleSelectSize} />
           ))}
         </div>
       </div>
@@ -63,10 +94,15 @@ export const Settings = ({
           Выбрать файл
         </h4>
 
-        <SettingFile value="" />
+        <SettingFile file={file} setFile={handleSelectFile} />
       </div>
 
-      <button type="button" className="w-full py-[clamp(6px,4vw,10px)] bg-(--accent-color) text-[--second-color] uppercase font-bold rounded-xl cursor-pointer transition duration-400 hover:bg-(--third-color)">Купить</button>
+      <button
+        type="button"
+        className="w-full py-[clamp(6px,4vw,10px)] bg-(--accent-color) text-[--second-color] uppercase font-bold rounded-xl cursor-pointer transition duration-400 hover:bg-(--third-color)"
+      >
+        Купить
+      </button>
     </div>
   );
 };

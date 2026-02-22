@@ -2,14 +2,27 @@ import { IClothesColorItems } from "@/constants/constructor-items";
 
 interface ISettingsColorItemProps {
   itemColor: IClothesColorItems;
+  color: string;
+  setColor: (color: string) => void;
 }
 
-export const SettingsColorItem = ({ itemColor }: ISettingsColorItemProps) => {
+export const SettingsColorItem = ({
+  itemColor,
+  color,
+  setColor,
+}: ISettingsColorItemProps) => {
+  const isActive = itemColor.name === color;
+
   return (
-    <label>
+    <label onClick={() => setColor(itemColor.name)}>
       <div
-        className={`w-10 h-10  rounded-[50%] border border-(--border-constructor) cursor-pointer`}
-        style={{ backgroundColor: itemColor.color }}
+        className={`w-10 h-10 border-3 cursor-pointer duration-400 hover:opacity-70`}
+        style={{
+          backgroundColor: itemColor.color,
+          borderRadius: isActive ? "50%" : "40%",
+          borderColor: isActive ? "var(--accent-color)" : "var(--border-constructor)",
+          transitionProperty: "border-radius, border-color, opacity",
+        }}
       />
       <input
         type="radio"
