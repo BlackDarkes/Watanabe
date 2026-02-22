@@ -13,17 +13,21 @@ interface ISettingsProps {
   settingTypes: IClothesTypeItems[];
   settingColors: IClothesColorItems[];
   settingSizes: IClothesSizeItems[];
+  settingItemSizes: IClothesSizeItems[];
 }
 
 export const Settings = ({
   settingTypes,
   settingColors,
   settingSizes,
+  settingItemSizes
 }: ISettingsProps) => {
   const [type, setType] = useState<string>("");
   const [color, setColor] = useState<string>("");
   const [size, setSize] = useState<string>("");
   const [file, setFile] = useState<File | null>(null);
+
+  const sizes = type === "Значки" || type === "Наклейки" ? settingItemSizes : settingSizes;
 
   const handleSelect = (type: string) => {
     setType(type);
@@ -83,7 +87,7 @@ export const Settings = ({
         </h4>
 
         <div className="flex flex-wrap gap-2.5">
-          {settingSizes.map((itemSize) => (
+          {sizes.map((itemSize) => (
             <SettingsSizeItem key={itemSize.id} itemSize={itemSize} size={size} setSize={handleSelectSize} />
           ))}
         </div>
