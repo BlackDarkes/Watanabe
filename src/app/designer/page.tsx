@@ -1,3 +1,4 @@
+import { Constructor } from "@/components/constructor";
 import { Footer } from "@/components/footer/Footer";
 import { Header } from "@/components/header";
 
@@ -7,7 +8,7 @@ export default function Designer() {
     <>
       <Header />
       <main>
-        {/* <Constructor /> */}
+        <Constructor />
       </main>
       <Footer />
     </>
