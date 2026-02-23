@@ -1,7 +1,11 @@
 import { LucideIcon, Shirt, Sticker } from "lucide-react";
-import ImageHoody from "@/assets/icons/constructor/hoody.png";
-import ImageSticker from "@/assets/icons/constructor/stickers.png";
 import { StaticImageData } from "next/image";
+import IconHoody from "@/assets/icons/constructor/hoody.png";
+import IconSticker from "@/assets/icons/constructor/stickers.png";
+import ImageTShort from "@/assets/images/constructor/t-short.svg";
+import ImageHoody from "@/assets/images/constructor/hoody.svg";
+import ImageIcon from "@/assets/images/constructor/icon.svg";
+import ImageStiker from "@/assets/images/constructor/stiker.svg";
 
 interface IClothesTypeItems {
   id: number;
@@ -23,10 +27,16 @@ interface IClothesSizeItems {
   size: string;
 }
 
+interface ICanvasItems {
+  id: number;
+  name: string;
+  img: StaticImageData;
+}
+
 const CLOTHES_TYPE_ITEMS: IClothesTypeItems[] = [
   { id: 1, name: "Футболки", icon: Shirt, isLucide: true },
-  { id: 2, name: "Худи", img: ImageHoody, isLucide: false },
-  { id: 3, name: "Значки", img: ImageSticker, isLucide: false },
+  { id: 2, name: "Худи", img: IconHoody, isLucide: false },
+  { id: 3, name: "Значки", img: IconSticker, isLucide: false },
   { id: 4, name: "Наклейки", icon: Sticker, isLucide: true },
 ];
 
@@ -55,12 +65,22 @@ const CLOTHES_ITEM_SIZE_ITEMS: IClothesSizeItems[] = [
   { id: 2, name: "100x100", size: "100x100" },
 ];
 
+const CANVAS_ITEMS: ICanvasItems[] = [
+  { id: 1, name: "Футболка", img: ImageTShort },
+  { id: 2, name: "Худи", img: ImageHoody },
+  { id: 3, name: "Значки", img: ImageIcon },
+  { id: 4, name: "Наклейки", img: ImageStiker },
+];
+
 export {
   type IClothesTypeItems,
   type IClothesColorItems,
   type IClothesSizeItems,
+  type ICanvasItems,
+
   CLOTHES_TYPE_ITEMS,
   CLOTHES_COLOR_ITEMS,
   CLOTHES_SIZE_ITEMS,
   CLOTHES_ITEM_SIZE_ITEMS,
+  CANVAS_ITEMS
 };

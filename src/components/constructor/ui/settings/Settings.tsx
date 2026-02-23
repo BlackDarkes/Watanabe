@@ -7,7 +7,7 @@ import { SettingsTypeItem } from "./SettingsTypeItem";
 import { SettingsColorItem } from "./SettingsColorItem";
 import { SettingsSizeItem } from "./SettingsSizeItem";
 import { SettingFile } from "./SettingFile";
-import { useState } from "react";
+import { useConstructorStore } from "../../model/constructor-store";
 
 interface ISettingsProps {
   settingTypes: IClothesTypeItems[];
@@ -22,10 +22,7 @@ export const Settings = ({
   settingSizes,
   settingItemSizes
 }: ISettingsProps) => {
-  const [type, setType] = useState<string>("");
-  const [color, setColor] = useState<string>("");
-  const [size, setSize] = useState<string>("");
-  const [file, setFile] = useState<File | null>(null);
+  const { type, color, size, file, setType, setColor, setSize, setFile } = useConstructorStore();
 
   const sizes = type === "Значки" || type === "Наклейки" ? settingItemSizes : settingSizes;
 

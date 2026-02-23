@@ -3,7 +3,7 @@ import Image from "next/image";
 
 interface ISettingsTypeItemProps {
   itemType: IClothesTypeItems;
-  type: string;
+  type: string | null;
   setType: (type: string) => void;
 }
 

@@ -2,7 +2,7 @@ import { IClothesColorItems } from "@/constants/constructor-items";
 
 interface ISettingsColorItemProps {
   itemColor: IClothesColorItems;
-  color: string;
+  color: string | null;
   setColor: (color: string) => void;
 }
 

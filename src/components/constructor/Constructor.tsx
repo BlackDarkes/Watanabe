@@ -4,6 +4,7 @@ import { Container } from "@/shared/ui";
 import { Canvas } from "./ui/canvas/Canvas";
 import { Settings } from "./ui/settings/Settings";
 import {
+  CANVAS_ITEMS,
   CLOTHES_COLOR_ITEMS,
   CLOTHES_ITEM_SIZE_ITEMS,
   CLOTHES_SIZE_ITEMS,
@@ -19,7 +20,7 @@ export const Constructor = () => {
         </h2>
 
         <div className="flex gap-[clamp(40px,4vw,60px)] max-lg:flex-col-reverse max-lg:items-center">
-          <Canvas handleSelect={() => {}} />
+          <Canvas canvasItems={CANVAS_ITEMS} />
           <Settings
             settingTypes={CLOTHES_TYPE_ITEMS}
             settingColors={CLOTHES_COLOR_ITEMS}

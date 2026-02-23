@@ -2,7 +2,7 @@ import { IClothesSizeItems } from "@/constants/constructor-items";
 
 interface ISettingsSizeItemProps {
   itemSize: IClothesSizeItems;
-  size: string;
+  size: string | null;
   setSize: (size: string) => void;
 }
 
