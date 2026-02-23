@@ -38,7 +38,7 @@ export const Settings = ({
     setSize(size);
   };
 
-  const handleSelectFile = (file: File) => {
+  const handleSelectFile = (file: File | null) => {
     setFile(file);
   };
 

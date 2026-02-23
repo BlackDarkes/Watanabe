@@ -10,7 +10,7 @@ interface IConstructorStore {
   setType: (type: string) => void;
   setColor: (color: string) => void;
   setSize: (size: string) => void;
-  setFile: (file: File) => void;
+  setFile: (file: File | null) => void;
 
   reset: () => void;
 }
@@ -26,7 +26,7 @@ export const useConstructorStore = create<IConstructorStore>()(
       setType: (type: string) => set({ type }),
       setColor: (color: string) => set({ color }),
       setSize: (size: string) => set({ size }),
-      setFile: (file: File) => set({ file }),
+      setFile: (file: File | null) => set({ file }),
 
       reset: () => set({ type: null, color: null, size: null, file: null }),
     }),
