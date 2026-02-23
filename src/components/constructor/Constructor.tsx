@@ -19,7 +19,7 @@ export const Constructor = () => {
           Конструктор создания мерча
         </h2>
 
-        <div className="flex gap-[clamp(40px,4vw,60px)] max-lg:flex-col-reverse max-lg:items-center">
+        <div className="flex gap-[clamp(40px,4vw,60px)] max-lg:flex-col max-lg:items-center">
           <Canvas canvasItems={CANVAS_ITEMS} />
           <Settings
             settingTypes={CLOTHES_TYPE_ITEMS}

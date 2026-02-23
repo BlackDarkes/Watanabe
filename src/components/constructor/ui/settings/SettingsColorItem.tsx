@@ -11,10 +11,10 @@ export const SettingsColorItem = ({
   color,
   setColor,
 }: ISettingsColorItemProps) => {
-  const isActive = itemColor.name === color;
+  const isActive = itemColor.color === color;
 
   return (
-    <label onClick={() => setColor(itemColor.name)}>
+    <label onClick={() => setColor(itemColor.color)}>
       <div
         className={`w-10 h-10 border-3 cursor-pointer duration-400 hover:opacity-70`}
         style={{

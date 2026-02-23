@@ -2,10 +2,10 @@ import { LucideIcon, Shirt, Sticker } from "lucide-react";
 import { StaticImageData } from "next/image";
 import IconHoody from "@/assets/icons/constructor/hoody.png";
 import IconSticker from "@/assets/icons/constructor/stickers.png";
-import ImageTShort from "@/assets/images/constructor/t-short.svg";
-import ImageHoody from "@/assets/images/constructor/hoody.svg";
-import ImageIcon from "@/assets/images/constructor/icon.svg";
-import ImageStiker from "@/assets/images/constructor/stiker.svg";
+import ImageTShort from "@/assets/images/constructor/t-short.png";
+import ImageHoody from "@/assets/images/constructor/hoody.png";
+import ImageIcon from "@/assets/images/constructor/icon.png";
+import ImageStiker from "@/assets/images/constructor/stiker.png";
 
 interface IClothesTypeItems {
   id: number;
