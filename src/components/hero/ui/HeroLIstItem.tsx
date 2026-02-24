@@ -4,9 +4,10 @@ import { HeroListTag } from "./HeroListTag";
 
 interface IHeroListItemProps {
   product: Product;
+  handleOpenModel: () => void;
 }
   
-export const HeroListItem = ({ product }: IHeroListItemProps) => {
+export const HeroListItem = ({ product, handleOpenModel }: IHeroListItemProps) => {
   return (
     <li className="flex flex-col shrink-0 gap-y-3.75 p-2.5 bg-(--card-bg) w-[clamp(220px,40vw,260px)] rounded-xl shadow-(--block-shadow) snap-center">
       <Image src={product.img} alt={product.name} width={260} height={260} className="ratio w-[clamp(220px,40vw,260px)]" />
@@ -20,7 +21,7 @@ export const HeroListItem = ({ product }: IHeroListItemProps) => {
         </div>
         <p className="mb-6.25 text-(--third-color) font-bold text-[clamp(20px,4vw,26px)]">{product.price} ₽</p>
 
-        <button type="button" className="w-full py-[clamp(6px,4vw,10px)] bg-(--accent-color) text-[--second-color] uppercase font-bold rounded-xl cursor-pointer transition duration-400 hover:bg-(--third-color)">Купить</button>
+        <button type="button" onClick={handleOpenModel} className="w-full py-[clamp(6px,4vw,10px)] bg-(--accent-color) text-[--second-color] uppercase font-bold rounded-xl cursor-pointer transition duration-400 hover:bg-(--third-color)">Купить</button>
       </div>
     </li>
   );

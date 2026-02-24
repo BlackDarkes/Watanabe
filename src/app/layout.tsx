@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Manrope } from "next/font/google";
 import "./globals.css";
+import { ModelForm } from "@/components/modal-form";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -34,7 +35,10 @@ export default function RootLayout({
         className={`${montserrat.variable} ${ manrope.variable} antialiased`}
         id="dark"
       >
-        {children}
+        <>
+          {children}
+          <ModelForm />
+        </>
       </body>
     </html>
   );
