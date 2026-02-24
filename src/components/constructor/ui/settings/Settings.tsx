@@ -23,8 +23,17 @@ export const Settings = ({
   settingSizes,
   settingItemSizes,
 }: ISettingsProps) => {
-  const { type, color, size, file, setType, setColor, setSize, setFile } =
-    useConstructorStore();
+  const {
+    type,
+    color,
+    size,
+    file,
+    setType,
+    setColor,
+    setSize,
+    setFile,
+    reset,
+  } = useConstructorStore();
   const { handleOpen } = useModelFormStore();
   const isDisabled = !type || !color || !size;
 
@@ -107,6 +116,21 @@ export const Settings = ({
 
         <SettingFile file={file} setFile={handleSelectFile} />
       </div>
+
+      <button
+        type="button"
+        onClick={reset}
+        className={`
+          w-fit py-[clamp(6px,4vw,10px)] text-[--second-color] uppercase font-bold cursor-pointer
+          relative 
+          transition duration-400 
+          hover:text-(--second-color) 
+          before:content-[''] before:absolute before:w-full before:h-px before:-bottom-0.5 before:left-0 before:bg-(--second-color) before:scale-x-0 before:origin-left before:transition before:duration-400 
+          hover:before:origin-left hover:before:scale-x-100  
+        `}
+      >
+        Сбросить настройки
+      </button>
 
       <button
         type="button"
