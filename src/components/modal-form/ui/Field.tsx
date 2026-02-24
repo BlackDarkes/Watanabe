@@ -30,16 +30,11 @@ export const Field = ({
   useEffect(() => {
     if (isFocus && inputRef.current) {
       inputRef.current?.focus();
-    }
+    } 
   }, [isFocus]);
 
   const handleFocus = () => {
-    if (isFocus) {
-      setFocused(true);
-      return;
-    }
-
-    setFocused(false);
+    setFocused(true);
   };
 
   return (
