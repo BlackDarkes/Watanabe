@@ -4,12 +4,13 @@ import { useModelFormStore } from "./model/model-form-store";
 import { FieldCloceButton } from "./ui/FieldCloceButton";
 import { Form } from "./ui/Form";
 
+ 
 export const ModelForm = () => {
-  const { isOpen, handleOpen } = useModelFormStore();
+  const { isOpen, handleOpen, name, price } = useModelFormStore();
 
   return (
     <section
-      onClick={handleOpen}
+      onClick={() => handleOpen(null)}
       className={`
         fixed top-0 left-0 inset-0 flex items-center justify-center bg-(--model-form-bg-opacity) text-(--secondary-bg) transition-all duration-400 ease-in-out cursor-pointer z-600
         ${isOpen ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"}`}
@@ -22,9 +23,9 @@ export const ModelForm = () => {
           Заказать
         </h2>
 
-        <Form />
+        <Form name={name || ""} price={price || null} />
 
-        <FieldCloceButton isOpen={isOpen} handleOpen={handleOpen} />
+        <FieldCloceButton isOpen={isOpen} handleOpen={() => handleOpen(null)} />
       </div>
     </section>
   );

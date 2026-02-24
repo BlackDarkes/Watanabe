@@ -13,6 +13,7 @@ interface IClothesTypeItems {
   img?: StaticImageData;
   icon?: LucideIcon
   isLucide: boolean;
+  price: number;
 }
 
 interface IClothesColorItems {
@@ -34,10 +35,10 @@ interface ICanvasItems {
 }
 
 const CLOTHES_TYPE_ITEMS: IClothesTypeItems[] = [
-  { id: 1, name: "Футболки", icon: Shirt, isLucide: true },
-  { id: 2, name: "Худи", img: IconHoody, isLucide: false },
-  { id: 3, name: "Значки", img: IconSticker, isLucide: false },
-  { id: 4, name: "Наклейки", icon: Sticker, isLucide: true },
+  { id: 1, name: "Футболки", icon: Shirt, isLucide: true, price: 960 },
+  { id: 2, name: "Худи", img: IconHoody, isLucide: false, price: 1500 },
+  { id: 3, name: "Значки", img: IconSticker, isLucide: false, price: 300 },
+  { id: 4, name: "Наклейки", icon: Sticker, isLucide: true, price: 200 },
 ];
 
 const CLOTHES_COLOR_ITEMS: IClothesColorItems[] = [
