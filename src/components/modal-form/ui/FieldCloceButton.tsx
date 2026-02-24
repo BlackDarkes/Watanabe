@@ -9,7 +9,7 @@ export const FieldCloceButton = ({ handleOpen, isOpen }: IFieldCloceButtonProps)
       type="button"
       className={`
         absolute 
-        top-10 right-10
+        top-[clamp(20px,8vw,40px)] right-[clamp(20px,8vw,40px)]
         flex items-center justify-center w-7.5 h-6 
         before:content-[''] before:absolute before:top-0 before:w-full before:h-px before:bg-(--secondary-bg) before:transition before:duration-400 
         after:content-[''] after:absolute after:bottom-0 after:w-full after:h-px after:bg-(--secondary-bg) after:transition after:duration-400 

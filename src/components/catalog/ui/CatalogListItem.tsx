@@ -4,9 +4,10 @@ import { CatalogListTag } from "./CatalogListTag";
 
 interface ICatalogListItemProps {
   product: Product;
+  handleOpen: () => void;
 }
 
-export const CatalogListItem = ({ product }: ICatalogListItemProps) => {
+export const CatalogListItem = ({ product, handleOpen }: ICatalogListItemProps) => {
   return (
     <li className="flex flex-col shrink-0 gap-y-3.75 p-2.5 w-[clamp(140px,40vw,280px)] bg-(--card-bg) rounded-xl shadow-(--block-shadow) snap-center">
       <Image
@@ -35,6 +36,7 @@ export const CatalogListItem = ({ product }: ICatalogListItemProps) => {
 
         <button
           type="button"
+          onClick={handleOpen}
           className="w-full py-[clamp(6px,4vw,10px)] bg-(--accent-color) text-[--second-color] uppercase font-bold rounded-xl cursor-pointer transition duration-400 hover:bg-(--third-color)"
         >
           Купить
