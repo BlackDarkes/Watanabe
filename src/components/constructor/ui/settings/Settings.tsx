@@ -8,6 +8,7 @@ import { SettingsColorItem } from "./SettingsColorItem";
 import { SettingsSizeItem } from "./SettingsSizeItem";
 import { SettingFile } from "./SettingFile";
 import { useConstructorStore } from "../../model/constructor-store";
+import { useModelFormStore } from "@/components/modal-form";
 
 interface ISettingsProps {
   settingTypes: IClothesTypeItems[];
@@ -20,11 +21,15 @@ export const Settings = ({
   settingTypes,
   settingColors,
   settingSizes,
-  settingItemSizes
+  settingItemSizes,
 }: ISettingsProps) => {
-  const { type, color, size, file, setType, setColor, setSize, setFile } = useConstructorStore();
+  const { type, color, size, file, setType, setColor, setSize, setFile } =
+    useConstructorStore();
+  const { handleOpen } = useModelFormStore();
+  const isDisabled = !type || !color || !size;
 
-  const sizes = type === "Значки" || type === "Наклейки" ? settingItemSizes : settingSizes;
+  const sizes =
+    type === "Значки" || type === "Наклейки" ? settingItemSizes : settingSizes;
 
   const handleSelect = (type: string) => {
     setType(type);
@@ -85,7 +90,12 @@ export const Settings = ({
 
         <div className="flex flex-wrap gap-2.5">
           {sizes.map((itemSize) => (
-            <SettingsSizeItem key={itemSize.id} itemSize={itemSize} size={size} setSize={handleSelectSize} />
+            <SettingsSizeItem
+              key={itemSize.id}
+              itemSize={itemSize}
+              size={size}
+              setSize={handleSelectSize}
+            />
           ))}
         </div>
       </div>
@@ -100,7 +110,12 @@ export const Settings = ({
 
       <button
         type="button"
-        className="w-full py-[clamp(6px,4vw,10px)] bg-(--accent-color) text-[--second-color] uppercase font-bold rounded-xl cursor-pointer transition duration-400 hover:bg-(--third-color)"
+        onClick={handleOpen}
+        disabled={isDisabled}
+        className={`
+          w-full py-[clamp(6px,4vw,10px)] bg-(--accent-color) text-[--second-color] uppercase font-bold rounded-xl  transition duration-400 
+          ${isDisabled ? "opacity-50 hover:bg-(--accent-color) cursor-not-allowed" : "hover:bg-(--third-color) cursor-pointer"}
+        `}
       >
         Купить
       </button>
