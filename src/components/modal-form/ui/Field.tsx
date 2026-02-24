@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, HTMLInputTypeAttribute, useState } from "react";
+import { ChangeEvent, HTMLInputTypeAttribute, useEffect, useRef, useState } from "react";
 
 interface IFieldProps {
   label: string;
@@ -8,6 +8,8 @@ interface IFieldProps {
   id: string;
   type: HTMLInputTypeAttribute;
   value: string;
+  style?: string;
+  isFocus?: boolean;
   handleValue: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -17,13 +19,27 @@ export const Field = ({
   id,
   type,
   value,
+  style,
+  isFocus,
   handleValue,
 }: IFieldProps) => {
   const [focused, setFocused] = useState<boolean>(false);
   const [hover, setHover] = useState<boolean>(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (isFocus && inputRef.current) {
+      inputRef.current?.focus();
+    }
+  }, [isFocus]);
 
   const handleFocus = () => {
-    setFocused(true);
+    if (isFocus) {
+      setFocused(true);
+      return;
+    }
+
+    setFocused(false);
   };
 
   return (
@@ -48,6 +64,7 @@ export const Field = ({
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         value={value}
+        ref={inputRef}
         className={`
           w-full p-[12px_10px] h-full  transition duration-400 outline-none border
           ${
@@ -55,6 +72,7 @@ export const Field = ({
               ? "border-(--secondary-bg) rounded-xl"
               : "border-t-transparent border-x-transparent border-b-(--secondary-bg) rounded-none"
           }
+          ${style}
         `}
       />
     </div>
