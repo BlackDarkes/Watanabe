@@ -31,6 +31,7 @@ export interface IProduct {
   tags: ProductTags[];
   price: number;
   img: string;
+  star: number | null;
   createdAt: Date;
   updatedAt: Date;
 }

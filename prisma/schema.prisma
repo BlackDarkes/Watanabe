@@ -19,7 +19,8 @@ model Product {
   name String 
   tags ProductTags[]
   price Int
-  img String 
+  img String
+  star Int? 
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")

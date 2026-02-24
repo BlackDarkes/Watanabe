@@ -11,7 +11,7 @@ interface ICatalogListWrapperProps {
 }
 
 export const CatalogListWrapper = ({ products }: ICatalogListWrapperProps) => {
-  const [updateProducts, setUpdateProducts] = useState(products);
+  const [updateProducts, setUpdateProducts] = useState<IProduct[]>(products);
   const [limit, setLimit] = useState(8);
   const [isDisabled, setIsDisabled] = useState(false);
 
