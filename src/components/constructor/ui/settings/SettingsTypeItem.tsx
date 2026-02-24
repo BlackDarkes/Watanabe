@@ -5,12 +5,14 @@ interface ISettingsTypeItemProps {
   itemType: IClothesTypeItems;
   type: string | null;
   setType: (type: string) => void;
+  setPrice: (price: number) => void;
 }
 
 export const SettingsTypeItem = ({
   itemType,
   type,
   setType,
+  setPrice,
 }: ISettingsTypeItemProps) => {
   const isActive = itemType.name === type;
 
@@ -21,7 +23,10 @@ export const SettingsTypeItem = ({
         backgroundColor: isActive ? "var(--accent-color)" : "var(--card-bg)",
         borderColor: isActive ? "var(--accent-color)" : "var(--border-constructor)"
       }}
-      onClick={() => setType(itemType.name)}
+      onClick={() => {
+        setType(itemType.name);
+        setPrice(itemType.price);
+      }}
     >
       {itemType.isLucide && itemType.icon ? (
         <itemType.icon size={40} />

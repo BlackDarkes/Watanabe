@@ -28,10 +28,12 @@ export const Settings = ({
     color,
     size,
     file,
+    price,
     setType,
     setColor,
     setSize,
     setFile,
+    setPrice,
     reset,
   } = useConstructorStore();
   const { handleOpen } = useModelFormStore();
@@ -69,6 +71,7 @@ export const Settings = ({
               key={itemType.id}
               itemType={itemType}
               type={type}
+              setPrice={setPrice}
               setType={handleSelect}
             />
           ))}
@@ -134,7 +137,16 @@ export const Settings = ({
 
       <button
         type="button"
-        onClick={handleOpen}
+        onClick={() => handleOpen({ 
+          name: type!,
+          id: type === "Значки" || type === "Наклейки" ? color! : size!,
+          tags: [],
+          price: price!,
+          img: file?.name || "",
+          star: 5,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        })}
         disabled={isDisabled}
         className={`
           w-full py-[clamp(6px,4vw,10px)] bg-(--accent-color) text-[--second-color] uppercase font-bold rounded-xl  transition duration-400 
