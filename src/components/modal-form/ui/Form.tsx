@@ -13,8 +13,9 @@ export const Form = ({ name, price }: IFormProps) => {
   const [address, setAddress] = useState<string>("");
   const [fio, setFio] = useState<string>("");
   const [error, setError] = useState<{ type: string, message: string }>({ type: "", message: "" });
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
@@ -33,9 +34,31 @@ export const Form = ({ name, price }: IFormProps) => {
     }
 
     setError({ type: "", message: "" });
-    setEmail("");
-    setAddress("");
-    setFio("");
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/mailer", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, address, fio, price, name }),
+      })
+
+      if (!response.ok) {
+        alert("Ошибка при оформлении заказа.");
+      }
+
+      alert("Заказ успешно оформлен! Проверьте почту.");
+      setEmail("");
+      setAddress("");
+      setFio("");
+    } catch(error) {
+      console.error(error);
+      alert("Ошибка соединения с сервером.");
+    } finally {
+      setLoading(false);
+    }
 
     console.log(email, address, fio);
   };
