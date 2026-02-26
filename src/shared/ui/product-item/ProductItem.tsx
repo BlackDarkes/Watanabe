@@ -1,7 +1,10 @@
+"use client"
+
 import { Product } from "@/generated/prisma/client";
 import Image from "next/image";
 import { Star } from "lucide-react";
 import { ProductItemTag } from "./ProductItemTag";
+import { useScrollWheel } from "@/hooks/useScrollWheel";
 
 interface IProductItemProps {
   product: Product;
@@ -9,6 +12,8 @@ interface IProductItemProps {
 }
   
 export const ProductItem = ({ handleOpenModel, product }: IProductItemProps) => {
+  const { scrollWheelRef } = useScrollWheel();
+
   return (
     <li className="flex flex-col shrink-0 gap-y-3.75 p-2.5 bg-(--card-bg) w-[min(100%,280px)] rounded-xl shadow-(--block-shadow) snap-center">
       <Image
@@ -26,11 +31,11 @@ export const ProductItem = ({ handleOpenModel, product }: IProductItemProps) => 
         >
           {product.name}
         </h3>
-        <div className="flex gap-x-2.5 mb-5 overflow-auto text-nowrap overscroll-x-contain scrollbar-hide">
+        <ul ref={scrollWheelRef} className="flex gap-x-2.5 mb-5 overflow-auto text-nowrap overscroll-x-contain scrollbar-hide">
           {product.tags.map((tag, index) => (
             <ProductItemTag key={index} tag={tag} />
           ))}
-        </div>
+        </ul>
         <div className="flex items-center justify-between mb-6.25">
           <p className="text-(--third-color) font-bold text-[clamp(20px,4vw,26px)]">
             {product.price} ₽
