@@ -22,18 +22,19 @@ export const POST = async (request: Request) => {
       EmailTemplate({ email, address, fio, price, name }),
     );
 
-    const mailOptions = {
+    await transport.sendMail({
       from: process.env.MAIL_USER,
       to: email,
-      subscribe: `Оплата ${name}, с магазина Watanabe!`,
+      subject: `Оплата ${name}, с магазина Watanabe!`,
       html: renderHtml,
-    };
-
-    await transport.sendMail(mailOptions);
+    });
 
     return NextResponse.json({ message: "Заказ успешно оформлен" });
-  } catch(error) {
+  } catch (error) {
     logger.error("mailer", error);
-    return NextResponse.json({ error: "Произошла ошибка при обработке заказа" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Произошла ошибка при обработке заказа" },
+      { status: 500 },
+    );
   }
 };
