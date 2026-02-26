@@ -31,9 +31,9 @@ export const POST = async (request: Request) => {
 
     await transport.sendMail(mailOptions);
 
-    return NextResponse.json({ message: "Сообщение успешно отправлено" });
+    return NextResponse.json({ message: "Заказ успешно оформлен" });
   } catch(error) {
     logger.error("mailer", error);
-    return NextResponse.json({ error: "Произошла ошибка при отправке сообщения на почту" }, { status: 500 });
+    return NextResponse.json({ error: "Произошла ошибка при обработке заказа" }, { status: 500 });
   }
 };

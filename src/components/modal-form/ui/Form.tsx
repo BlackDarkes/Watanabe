@@ -2,6 +2,8 @@
 
 import { ChangeEvent, useState } from "react";
 import { Field } from "./Field";
+import { useToastStore } from "@/components/toast";
+import { useModelFormStore } from "../model/model-form-store";
 
 interface IFormProps {
   name: string | null;
@@ -14,6 +16,9 @@ export const Form = ({ name, price }: IFormProps) => {
   const [fio, setFio] = useState<string>("");
   const [error, setError] = useState<{ type: string, message: string }>({ type: "", message: "" });
   const [loading, setLoading] = useState<boolean>(false);
+
+  const { onOpen } = useToastStore();
+  const { handleOpen } = useModelFormStore();
 
   const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -46,16 +51,21 @@ export const Form = ({ name, price }: IFormProps) => {
       })
 
       if (!response.ok) {
-        alert("Ошибка при оформлении заказа.");
+        const error = await response.json();
+        onOpen(error.error);
+        return;
       }
 
-      alert("Заказ успешно оформлен! Проверьте почту.");
+      const data = await response.json();
+
+      onOpen(data.message);
+      handleOpen(null);
+
       setEmail("");
       setAddress("");
       setFio("");
-    } catch(error) {
-      console.error(error);
-      alert("Ошибка соединения с сервером.");
+    } catch {
+      onOpen("Произошла ошибка при отправке заказа.");
     } finally {
       setLoading(false);
     }
@@ -112,7 +122,7 @@ export const Form = ({ name, price }: IFormProps) => {
         <p className="font-bold max-sm:text-[20px]">{name}</p>
       </div>
 
-      <button type="submit" className="py-2.5 w-full bg-(--accent-color) text-(--second-color) uppercase font-bold rounded-xl cursor-pointer transition duration-400 hover:bg-(--third-color)">Заказать</button>
+      <button type="submit" className="py-2.5 w-full bg-(--accent-color) text-(--second-color) uppercase font-bold rounded-xl cursor-pointer transition duration-400 hover:bg-(--third-color)">{ loading ? "Оформление заказа..." : "Заказать" }</button>
     </form>
   );
 };
