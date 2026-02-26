@@ -1,13 +1,14 @@
 import { Product } from "@/generated/prisma/client";
 import Image from "next/image";
 import { CatalogListTag } from "./CatalogListTag";
+import { memo } from "react";
 
 interface ICatalogListItemProps {
   product: Product;
   handleOpen: () => void;
 }
 
-export const CatalogListItem = ({ product, handleOpen }: ICatalogListItemProps) => {
+export const CatalogListItem = memo(({ product, handleOpen }: ICatalogListItemProps) => {
   return (
     <li className="flex flex-col shrink-0 gap-y-3.75 p-2.5 w-[clamp(140px,40vw,280px)] bg-(--card-bg) rounded-xl shadow-(--block-shadow) snap-center">
       <Image
@@ -44,4 +45,6 @@ export const CatalogListItem = ({ product, handleOpen }: ICatalogListItemProps) 
       </div>
     </li>
   );
-};
+});
+
+CatalogListItem.displayName = "CatalogListItem";
