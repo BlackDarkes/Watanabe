@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Watanabe
 
-## Getting Started
+## 📜 Лицензия
+Этот проект распространяется под лицензией **GPL-3.0**.  
+Подробнее см. [LICENSE](LICENSE).
 
-First, run the development server:
+**Описание проекта**: House — это лендинг сайт аниме мерча с оформлением заказа, созданием кастомного дизайна одежды и товаров, а также modules архитектурой, он написан на NextJS(TypeScript) с server-action и api-routes и Tailwindcss.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![NextJS](https://img.shields.io/badge/Next.js-15-000000?logo=next.js)](https://nextjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-%2338B2AC.svg?logo=tailwind-css&logoColor=white)](#)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Функционал
+
+- Адаптивный дизайн
+- Анимации при наведении, фокусировании и нажатии
+- Анимированный header
+- форма оформления заказа
+- При заказе отправляются письма на почту
+- Модальные окна
+- Валидация данных
+- Автоматическая прокрутка
+- Бизнес логика
+
+### Технологии
+- **Frontend**: Next, TypeScript, Tailwindcss, Zustand, Zod, Vitest + Testing-library.
+  [![NextJS](https://img.shields.io/badge/Next.js-15-000000?logo=next.js)](https://nextjs.org/) 
+  [![TypeScript](https://img.shields.io/badge/TypeScript-5%2B-%233178C6?logo=typescript)](https://www.typescriptlang.org/)  
+  [![Zustand](https://img.shields.io/badge/Zustand-4.4-%23000000?logo=zustand)](https://github.com/pmndrs/zustand) 
+  [![Zod](https://img.shields.io/badge/Zod-1.0-%23007ACC?logo=zod)](https://github.com/colinhacks/zod)
+- **Дизайн**: Figma.
+  [![Figma](https://img.shields.io/badge/Figma-Design-%23F24E1E?logo=figma)](https://figma.com/)
+
+### Установка
+
+1. Клонирование репозитория:
+
+   ```bash
+   https://github.com/BlackDarkes/Watanabe.git
+
+   ```
+
+2. Запустите проект:
+   
+    Node.js >= 20.x
+    pnpm >= 10.x
+   ```bash
+   cd frontend && pnpm install && pnpm run dev
+   ```
+
+### Пример кода
+
+## Next
+
+```TypeScript
+import { IProduct } from "@/shared/types/product.interface";
+import { create } from "zustand";
+import { devtools } from "zustand/middleware";
+
+interface IModelFormStore {
+  isOpen: boolean;
+  name: string | null;
+  price: number | null;
+  handleOpen: (product: IProduct | null) => void;
+}
+
+export const useModelFormStore = create<IModelFormStore>()(
+  devtools((set) => ({
+    isOpen: false,
+    name: null,
+    price: null,
+
+    handleOpen: (product: IProduct | null) => {
+      set((state) => ({ isOpen: !state.isOpen }));
+      document.body.classList.toggle("overflow-hidden");
+
+      if (product) {
+        set({ name: product.name, price: product.price });
+      } else {
+        set({ name: null, price: null });
+      }
+    }
+  })),
+);
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Структура проекта:
+    project/  
+    ├── public/       
+    ├── src/        
+    └── README.md  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Изображения проекта:
+1. **Desktop изображения:**
+  ![Главная страница (десктоп)](images/desktop/home.png)
+  *Рис. 1: Главная страница сайта в десктопной версии.* 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+  ![Страница конструктора (десктоп)](images/desktop/constructor.png)
+  *Рис. 2: Страница конструктора.*
 
-## Learn More
+  ![Форма оформления заказа (десктоп)](images/desktop/form.png)
+  *Рис. 3: Форма оформления заказа.*
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Mobile изображения:**
+   
+   ![Главная страница (мобильный)](images/mobile/home.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   *Рис. 4: Главная страница сайта в мобильной версии.*
+   
+   ![Страница конструктора (мобильный)](images/mobile/constructor.png)
 
-## Deploy on Vercel
+   *Рис. 5: Header в мобильной версии.*
+   
+   ![Бургер меню (мобильный)](images/mobile/burger-menu.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   *Рис. 6: Бургер меню в мобильной версии.*
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ![Форма оформления заказа (мобильный)](images/mobile/form.png)
+
+   *Рис. 7: Форма оформления заказа.*
