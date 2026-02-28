@@ -1,120 +1,79 @@
-# Watanabe
+# <p align="center">⛩️ Watanabe — House of Anime Merch</p>
 
-## 📜 Лицензия
-Этот проект распространяется под лицензией **GPL-3.0**.  
-Подробнее см. [LICENSE](LICENSE).
+<p align="center">
+  <img src="images/desktop/home.png" width="800" alt="Banner">
+</p>
 
-**Описание проекта**: House — это лендинг сайт аниме мерча с оформлением заказа, созданием кастомного дизайна одежды и товаров, а также modules архитектурой, он написан на NextJS(TypeScript) с server-action и api-routes и Tailwindcss.
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![NextJS](https://img.shields.io/badge/Next.js-15-000000?logo=next.js)](https://nextjs.org/)
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-000000?logo=next.js" alt="NextJS">
+  <img src="https://img.shields.io/badge/Tailwind%20CSS-%2338B2AC.svg?logo=tailwind-css&logoColor=white" alt="Tailwind">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff" alt="TS">
+  <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="GPL-3.0">
+</p>
+
+---
+
+### 📝 Описание
+**Watanabe** — это современный лендинг-магазин аниме-мерча. Ключевая фишка — **конструктор кастомного дизайна** одежды. Проект построен на модульной архитектуре с использованием последних фишек Next.js 15 (Server Actions, API Routes).
+
+### ✨ Основной функционал
+- 🎨 **Custom Builder**: Создание уникального дизайна товаров.
+- 📱 **Adaptive UI**: Идеальное отображение на любом устройстве.
+- ⚡ **Performance**: Анимации при взаимодействии и быстрые Server Actions.
+- 📧 **Order System**: Полноценная форма заказа с валидацией (Zod) и отправкой Email-уведомлений.
+- 🏗️ **Modular Architecture**: Чистая и масштабируемая структура кода.
+
+---
+
+### 🛠 Стек технологий
+
+#### **Core & State**
+[![NextJS](https://img.shields.io/badge/Next.js-000000?logo=next.js)](https://nextjs.org/) 
+[![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)](#)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff)](#)
+[![Zustand](https://img.shields.io/badge/Zustand-%23000000?logo=zustand)](https://github.com/pmndrs/zustand) 
+[![Zod](https://img.shields.io/badge/Zod-%23007ACC?logo=zod)](https://github.com/colinhacks/zod)
+
+#### **Styling & UI**
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-%2338B2AC.svg?logo=tailwind-css&logoColor=white)](#)
+[![Figma](https://img.shields.io/badge/Figma-Design-%23F24E1E?logo=figma)](https://figma.com/)
 
-### Функционал
+### **Tools**
+[![pnpm](https://img.shields.io/badge/pnpm-F69220?logo=pnpm&logoColor=fff)](#)
 
-- Адаптивный дизайн
-- Анимации при наведении, фокусировании и нажатии
-- Анимированный header
-- форма оформления заказа
-- При заказе отправляются письма на почту
-- Модальные окна
-- Валидация данных
-- Автоматическая прокрутка
-- Бизнес логика
+#### **Testing**
+[![Vitest](https://img.shields.io/badge/Vitest-6E9F18?logo=vitest&logoColor=fff)](#)
+[![Testing Library](https://img.shields.io/badge/Testing%20Library-%23E33332?logo=testing-library&logoColor=white)](https://testing-library.com/)
 
-### Технологии
-- **Frontend**: Next, TypeScript, Tailwindcss, Zustand, Zod, Vitest + Testing-library.
-  [![NextJS](https://img.shields.io/badge/Next.js-15-000000?logo=next.js)](https://nextjs.org/) 
-  [![TypeScript](https://img.shields.io/badge/TypeScript-5%2B-%233178C6?logo=typescript)](https://www.typescriptlang.org/)  
-  [![Zustand](https://img.shields.io/badge/Zustand-4.4-%23000000?logo=zustand)](https://github.com/pmndrs/zustand) 
-  [![Zod](https://img.shields.io/badge/Zod-1.0-%23007ACC?logo=zod)](https://github.com/colinhacks/zod)
-- **Дизайн**: Figma.
-  [![Figma](https://img.shields.io/badge/Figma-Design-%23F24E1E?logo=figma)](https://figma.com/)
+---
 
-### Установка
+### 📸 Скриншоты
 
-1. Клонирование репозитория:
+<details>
+<summary>💻 Десктопная версия (Развернуть)</summary>
 
+
+| Главная | Конструктор | Оформление |
+| :---: | :---: | :---: |
+| ![Home](images/desktop/home.png) | ![Constructor](images/desktop/constructor.png) | ![Form](images/desktop/form.png) |
+</details>
+
+<details>
+<summary>📱 Мобильная версия (Развернуть)</summary>
+
+<p align="center">
+  <img src="images/mobile/home.png" width="200" />
+  <img src="images/mobile/constructor.png" width="200" />
+  <img src="images/mobile/burger-menu.png" width="200" />
+</p>
+</details>
+
+---
+
+### 🚀 Быстрый старт
+
+**Требования:** Node.js >= 20.x, pnpm >= 10.x
+
+1. **Клонируйте репозиторий:**
    ```bash
-   https://github.com/BlackDarkes/Watanabe.git
-
-   ```
-
-2. Запустите проект:
-   
-    Node.js >= 20.x
-    pnpm >= 10.x
-   ```bash
-   cd frontend && pnpm install && pnpm run dev
-   ```
-
-### Пример кода
-
-## Next
-
-```TypeScript
-import { IProduct } from "@/shared/types/product.interface";
-import { create } from "zustand";
-import { devtools } from "zustand/middleware";
-
-interface IModelFormStore {
-  isOpen: boolean;
-  name: string | null;
-  price: number | null;
-  handleOpen: (product: IProduct | null) => void;
-}
-
-export const useModelFormStore = create<IModelFormStore>()(
-  devtools((set) => ({
-    isOpen: false,
-    name: null,
-    price: null,
-
-    handleOpen: (product: IProduct | null) => {
-      set((state) => ({ isOpen: !state.isOpen }));
-      document.body.classList.toggle("overflow-hidden");
-
-      if (product) {
-        set({ name: product.name, price: product.price });
-      } else {
-        set({ name: null, price: null });
-      }
-    }
-  })),
-);
-```
-
-### Структура проекта:
-    project/  
-    ├── public/       
-    ├── src/        
-    └── README.md  
-
-## Изображения проекта:
-1. **Desktop изображения:**
-  ![Главная страница (десктоп)](images/desktop/home.png)
-  *Рис. 1: Главная страница сайта в десктопной версии.* 
-
-  ![Страница конструктора (десктоп)](images/desktop/constructor.png)
-  *Рис. 2: Страница конструктора.*
-
-  ![Форма оформления заказа (десктоп)](images/desktop/form.png)
-  *Рис. 3: Форма оформления заказа.*
-
-
-1. **Mobile изображения:**
-   
-   ![Главная страница (мобильный)](images/mobile/home.png)
-
-   *Рис. 4: Главная страница сайта в мобильной версии.*
-   
-   ![Страница конструктора (мобильный)](images/mobile/constructor.png)
-
-   *Рис. 5: Header в мобильной версии.*
-   
-   ![Бургер меню (мобильный)](images/mobile/burger-menu.png)
-
-   *Рис. 6: Бургер меню в мобильной версии.*
-
-   ![Форма оформления заказа (мобильный)](images/mobile/form.png)
-
-   *Рис. 7: Форма оформления заказа.*
+   git clone https://github.com
